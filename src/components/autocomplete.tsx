@@ -56,10 +56,11 @@ const {suggestions} = search;
         value={search.text}
         onChange={handleChange}
         placeholder="Type something..."
-
+        data-testid="autocomplete"
+        aria-label="auto-input"
       />
       {!loading && suggestions.length > 0 && (
-        <ul>
+        <ul   data-testid="list">
           {suggestions.map((option) => (
             <li key={`${option.id}_${option.value}`} onClick={() => handleSelectOption(option)} className='text-left'>
               {option.value.includes(search.text) ? (

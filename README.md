@@ -11,6 +11,8 @@ react auto complete
 - npm i
 - npm run dev
 
+# running the unit test case
+- npm run test
 
 ## check the console for the URL
 
