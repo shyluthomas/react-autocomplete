@@ -32,10 +32,10 @@ Example: when we are using the current autocomplete  and we are using pure compo
  - multiple children elements  can be wrapped in fragment and which is avoidning extra node adding to the dom
  - example
  <code>
-    - <>
+   ` - <>
       - <h1>Hello</h1>
       - <p>World</p>
-    - </>
+    - </>`
  </code>
 
 
