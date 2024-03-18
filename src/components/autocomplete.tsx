@@ -8,20 +8,19 @@ interface Option {
 
 interface AutoCompleteProps {
   options: Option[];
+  selectedData: (data:string) => void;
 }
 interface stateProps {
   text: string
   suggestions: Option[];
 }
 
-const AutoComplete: React.FC<AutoCompleteProps> = ({ options }) => {
+const AutoComplete: React.FC<AutoCompleteProps> = ({ options, selectedData }) => {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState<stateProps>({
     text: "",
     suggestions: []
   });
-
-  
 
   const filterData = useCallback(async (query: string): Promise<Option[]> => {
     return new Promise((resolve) => {
@@ -44,7 +43,8 @@ const AutoComplete: React.FC<AutoCompleteProps> = ({ options }) => {
 
   const handleSelectOption = (option: Option) => {
     setLoading(true)
-    setSearch({ suggestions, text: option.value });
+    setSearch({ suggestions:[], text: option.value });
+    selectedData(option.value);
     
   };
 const {suggestions} = search;
@@ -61,7 +61,7 @@ const {suggestions} = search;
       {!loading && suggestions.length > 0 && (
         <ul>
           {suggestions.map((option) => (
-            <li key={option.id} onClick={() => handleSelectOption(option)} className='text-left'>
+            <li key={`${option.id}_${option.value}`} onClick={() => handleSelectOption(option)} className='text-left'>
               {option.value.includes(search.text) ? (
                 <>
                   <span>
