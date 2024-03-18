@@ -32,10 +32,10 @@ Example: when we are using the current autocomplete  and we are using pure compo
  - multiple children elements  can be wrapped in fragment and which is avoidning extra node adding to the dom
  - example
  <code>
- <>
-      <h1>Hello</h1>
-      <p>World</p>
-    </>
+    - <>
+      - <h1>Hello</h1>
+      - <p>World</p>
+    - </>
  </code>
 
 
@@ -109,7 +109,7 @@ try {
 # 11. How to render an HTML string coming from the server.
 - we can use the dangerouslySetInnerHTML attribute
 <code>
-<div dangerouslySetInnerHTML={{ __html: string from the server }} />;
+        <div dangerouslySetInnerHTML={{ __html: string from the server }} />;
 </code>
 - WE can user third party library to render string in app
 
